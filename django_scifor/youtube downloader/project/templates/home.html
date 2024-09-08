@@ -1,0 +1,26 @@
+<!-- app/templates/home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>YouTube Downloader</title>
+</head>
+<body>
+    <h1>YouTube Downloader</h1>
+
+    <!-- Display success or error messages -->
+    {% if message %}
+        <p style="color:green;">{{ message }}</p>
+    {% elif error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+
+    <!-- Form to input YouTube link -->
+    <form method="post">
+        {% csrf_token %}
+        <label for="link">YouTube Video Link:</label>
+        <input type="text" id="link" name="link" required>
+        <button type="submit">Download</button>
+    </form>
+</body>
+</html>
